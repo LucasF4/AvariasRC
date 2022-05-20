@@ -1,0 +1,4 @@
+#Thu May 19 17:40:38 BRT 2022
+base.0=/home/lucas/Documents/workspace/avarias/app_avarias_teste2ignore/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
