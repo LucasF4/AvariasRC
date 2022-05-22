@@ -1,2 +1,3 @@
 # AvariasRC
-Create repository for system avarias
+Create repository for system avarias.
+Localed inside the branch "master".
