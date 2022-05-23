@@ -1,14 +1,17 @@
 # presale
 
-Projeto FILA AGIL
+Projeto SISTEMA AVARIAS
 
 
 ## Finalidade
 
-Fila agil tem por finalidade agilizar o atendimento nas filas das lojas. Onde a função é coletar os produtos e gerar uma prevenda.
-Assim quando chegar no caixa o cliente irá passar somente o número da prevenda e finalizar a sua compra
+Agilizar o sistema de balanço e vendas de avarias, trazendo mais praticidade e controle.
 
 ## Desenvolvimento
+
+### Versão do Aplicativo
+
+	- Aplicativo desenvolvido na versão 1.0.0.
 
 ### Requisitos
 
@@ -17,35 +20,18 @@ Assim quando chegar no caixa o cliente irá passar somente o número da prevenda
 	- Versão SDK Dart 
 
 ### Funcionamento
-	- O presale inicia solicitando a filial na qual está sendo realizado a pré-venda. Para essa listagem, o aplicativo acessa a API: rmcweb.gruporcarvalho.com.br/api/v1/organizations. Assim, ele lista todas as filiais e informa na tela, logo seu funcionamento será à base de conexão com a internet. Caso o dispositivo não tenha nenhum conexão com a internet, a aplicação irá alertar o usuário e fechará a aplicação para evitar problemas no seu funcionamento.
-	- Ao informar a filial, o aplicativo redicionará o usuário para a rota /home, onde o mesmo informará o nome do cliente e fará a bipagem dos produtos.
-	- Ao bipar um produto, aparecerá uma aba com sua informação, e o usuário poderá selecionar a quantidade do produto que será registrada.
-	- Na parte superior do aplicativo, você pode perceber que existe algumas informações, sendo elas: Nome do aplicativo (por padrão: 'Fila Ágil'), Nome do cliente e em caso de bipagem do produto, o valor total a ser pago.
-	- O aplicativo terá algumas opções adicionais, representadas por "três pontos".
+	
+	O aplicativo MÓVEL AVARIAS possui dois sistemas disponível no aplicativo.
+	Ao iniciar o aplicativo, o usuário colocará a matrícula do funcionário e escolherá em qual sistema será realizado a operação. 
 
-	Opção Salvar Cesta: O aplicativo realiza um POST na API: https://rmcweb.gruporcarvalho.com.br/api/v1/organizations/${loja}/orders/ informando quantidade de itens pedido, valor total pedido, itens, entre outros dados. Ao final, ele irá apresentar o número de pedido do cliente, no qual o cliente informará no momento do pagamento.
+	- BALANÇO: Ao clicar em balanço, o usuário será encaminhado para uma tela padrão de bipagem de produtos, ficando disponível o registro de podrutos pelo laser ou inserindo o código de barras manualmente. Ao informar o produto que estará sendo registrado, o aplicativo abrirá uma tela com as informações do produto que foi informado, como código de barras, descrição do produto e o código único do mesmo. Caso o código do produto não seja encontrado, ele solicitará para que o usuário informe o código e isso deixará salvo no sistema ao salvar a cesta. Da próxima vez que o produto for bipado, não será mais possível alterar seu código e ficará visível qual código foi inserido naquele produto, podendo editar somente a sua quantidade. Salvando o produto, as informações serão armazenadas no sistema de balanço, ainda não registrando nenhuma informação. Segurando no card do produto, abrirá algumas informações como editar a quantidade do produto que foi bipado ou excluir o produto selecionado. Há também uma opção de deletar toda a cesta presente no meu de opções identificado pelos três pontos na parte superior do aplicativo.
+	Ao salvar a cesta, além de registrar seu código que foi inserido pelo usuário, os produtos serão lançados e ficarão disponíveis para a venda, onde isso será interagido diretamente com o sistema de pré-venda.
 
-	Opção Deletar Cesta: O aplicativo limpa todos os produtos que foram bipados de uma só vez.
-
-	Opção Sair do App: O aplicativo sairá do aplicativo, deixando salvos os produtos já bipados das respectivas lojas, porém o nome do usuário deverá ser informado novamente.
-
-	Opção Pedidos Pendentes: O aplicativo acessará a API: https://rmcweb.gruporcarvalho.com.br/api/v1/organizations/${loja}/orders para listar todos os pedidos pendentes dos clientes, informando o número do pedido, data e hora da emissão e o total a ser pago.
-
-	Opção de Edição: Você encontrará essa opção pressionando o produto bipado, identificado por um lápis verde, que abrirá a mesma caixa onde o usuário poderá editar a quantidade de itens.
-
-	Opção de Deletar Produto Individualmente: Você encontrará essa opção pressionando o produto bipado, identificado por uma lixeira vermelha, que ao ser clicada, removerá o produto instantanemante.
-
-	- O presale acessa a API do RCMWEB para realizar a consulta dos PRODUTOS e criar uma nova ORDEM
-	- API: rmcweb.gruporcarvalho.com.br/api/v1/organizations
+	- PREVENDA: Voltando ao menu inicial do aplicativo e entrando no sistema de pré-venda, o usuário irá ser direcionado para uma lista de pré-vendas que estão em andamento, onde irá trazer algumas informações como: nome do cliente e número da pré-venda (ambos poderão ser informados no caixa para a realização do pagamento), tão como a quantidade de produtos na cesta dessa pré-venda, data de abertura e o valor total. Na mesma janela, existe uma caixa de opções identificado por três pontos, onde o usuário poderá realizar a criação de uma nova pré-venda. Ao clicar nessa opção, abrirá uma lista de clientes cadastrados no sistema e ao clicar em um, será realizado a criação da pré-venda automaticamente. Caso já exista alguma pré-venda que foi clicada em andamento, o aplicativo reconhecerá e avisará ao usuário se ele pretende iniciar uma nova pré-venda desse usuário ou deseja continuar com a pré-venda já existente. Ao clicar em criar uma nova pré-venda, a lista será deletada e o usuário será informado que uma nova pré-venda foi criada.
+	Ao clicar dentro de uma pré-venda, o usuário será encaminhado para a cesta de pré-venda do respectivo cliente e poderá realizar a mesma função de bipagem, por laser, código de barras ou código do produto. Ao salvar o produto e sua quantidade, suas informações já estarão vinculadas diretamente no caixa e poderá ser acessados através do nome do cliente e número de pré-venda. Quando a venda for finalizada e a pré-venda encerrada, o usuário não terá mais acesso a mesma. O usuário também poderá cancelar a pré-venda em andamento pelo aplicativo móvel em "cancelar pré-venda".
 
 ### Informações Adicionais
 
-	- A aplicação tem algumas facilidades no momento de inserir o produto. Um botão virtual, que ao clicar, ligará o leitor do coletor. Também há uma opção que o usuário poderá inserir manualmente o código de barras do produto e uma terceira opção que a bipagem do produto poderá ser realizada pela câmera do celular e/ou smarthphone.
-
-	-	o presale acessa a API do RCMWEB para realizar a consulta dos PRODUTOS e criar uma nova ORDEM
-	-	API: rmcweb.gruporcarvalho.com.br/api/v1/organizations
+	API().urlApi: http://10.86.200.235/
 	
-### Rotas Acessadas
-
-	- Consulta de produtos: GET rmcweb.gruporcarvalho.com.br/api/v1/organizations/{:organization_id}/products/{:product_code}
-	- Gerar uma nova Ordem: POST rmcweb.gruporcarvalho.com.br/api/v1/organizations/{:organization_id}/orders
+	Lista de rotas da API presente nesta aplicação estão disponíveis no README.md do repositório controle_avarias.
